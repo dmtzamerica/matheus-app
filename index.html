@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Aprende a Leer">
+    <title>¡Aprende a Leer! 📚</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Floating decorations -->
+        <div class="floating-shapes">
+            <div class="shape star" style="--delay: 0s; --x: 10%; --y: 20%">⭐</div>
+            <div class="shape star" style="--delay: 1s; --x: 85%; --y: 15%">🌟</div>
+            <div class="shape" style="--delay: 0.5s; --x: 90%; --y: 70%">🎈</div>
+            <div class="shape" style="--delay: 1.5s; --x: 5%; --y: 80%">🦋</div>
+            <div class="shape" style="--delay: 2s; --x: 50%; --y: 5%">☁️</div>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">
+                <span class="title-icon">📚</span>
+                ¡Aprende a Leer!
+                <span class="title-icon">✨</span>
+            </h1>
+            <div class="stars-counter">
+                <span class="star-icon">⭐</span>
+                <span id="starCount">0</span>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="syllables">
+                <span class="tab-emoji">🔤</span>
+                <span class="tab-text">Sílabas</span>
+            </button>
+            <button class="nav-tab" data-tab="words">
+                <span class="tab-emoji">📖</span>
+                <span class="tab-text">Palabras</span>
+            </button>
+            <button class="nav-tab" data-tab="game">
+                <span class="tab-emoji">🎮</span>
+                <span class="tab-text">Juego</span>
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Syllables Section -->
+            <section id="syllables" class="tab-content active">
+                <div class="section-header">
+                    <h2>¡Aprende las Sílabas!</h2>
+                    <p>Toca cada sílaba para escucharla 🔊</p>
+                </div>
+                
+                <div class="consonant-selector">
+                    <button class="consonant-btn active" data-consonant="m">M</button>
+                    <button class="consonant-btn" data-consonant="p">P</button>
+                    <button class="consonant-btn" data-consonant="s">S</button>
+                    <button class="consonant-btn" data-consonant="l">L</button>
+                    <button class="consonant-btn" data-consonant="t">T</button>
+                    <button class="consonant-btn" data-consonant="n">N</button>
+                    <button class="consonant-btn" data-consonant="d">D</button>
+                    <button class="consonant-btn" data-consonant="c">C</button>
+                    <button class="consonant-btn" data-consonant="r">R</button>
+                    <button class="consonant-btn" data-consonant="b">B</button>
+                    <button class="consonant-btn" data-consonant="f">F</button>
+                    <button class="consonant-btn" data-consonant="g">G</button>
+                    <button class="consonant-btn" data-consonant="h">H</button>
+                    <button class="consonant-btn" data-consonant="j">J</button>
+                    <button class="consonant-btn" data-consonant="k">K</button>
+                    <button class="consonant-btn" data-consonant="v">V</button>
+                    <button class="consonant-btn" data-consonant="w">W</button>
+                    <button class="consonant-btn" data-consonant="x">X</button>
+                    <button class="consonant-btn" data-consonant="y">Y</button>
+                    <button class="consonant-btn" data-consonant="z">Z</button>
+                    <button class="consonant-btn" data-consonant="ñ">Ñ</button>
+                    <button class="consonant-btn" data-consonant="ch">CH</button>
+                    <button class="consonant-btn" data-consonant="ll">LL</button>
+                </div>
+
+                <div class="syllables-grid" id="syllablesGrid">
+                    <!-- Syllables will be generated here -->
+                </div>
+
+                <div class="vowels-reminder">
+                    <span class="vowel">A</span>
+                    <span class="vowel">E</span>
+                    <span class="vowel">I</span>
+                    <span class="vowel">O</span>
+                    <span class="vowel">U</span>
+                </div>
+            </section>
+
+            <!-- Words Section -->
+            <section id="words" class="tab-content">
+                <div class="section-header">
+                    <h2>¡Palabras con Dibujos!</h2>
+                    <p>Toca la palabra o el dibujo para escuchar 🔊</p>
+                </div>
+
+                <div class="category-selector">
+                    <button class="category-btn active" data-category="animals">🐾 Animales</button>
+                    <button class="category-btn" data-category="food">🍎 Comida</button>
+                    <button class="category-btn" data-category="family">👨‍👩‍👧 Familia</button>
+                    <button class="category-btn" data-category="objects">🏠 Cosas</button>
+                </div>
+
+                <div class="words-grid" id="wordsGrid">
+                    <!-- Words will be generated here -->
+                </div>
+            </section>
+
+            <!-- Game Section -->
+            <section id="game" class="tab-content">
+                <div class="section-header">
+                    <h2>¡A Jugar!</h2>
+                    <p>Encuentra la palabra correcta 🎯</p>
+                </div>
+
+                <div class="game-container">
+                    <div class="game-prompt">
+                        <div class="game-emoji" id="gameEmoji">🐱</div>
+                        <button class="listen-btn" id="listenBtn">
+                            🔊 Escuchar
+                        </button>
+                    </div>
+
+                    <div class="game-options" id="gameOptions">
+                        <!-- Options will be generated here -->
+                    </div>
+
+                    <div class="game-feedback" id="gameFeedback"></div>
+
+                    <button class="next-btn" id="nextBtn" style="display: none;">
+                        ¡Siguiente! ➡️
+                    </button>
+                </div>
+
+                <div class="game-score">
+                    <div class="score-item">
+                        <span class="score-label">Correctas</span>
+                        <span class="score-value" id="correctCount">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Racha</span>
+                        <span class="score-value" id="streakCount">0</span>
+                        <span class="streak-fire" id="streakFire">🔥</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Celebration overlay -->
+        <div class="celebration" id="celebration">
+            <div class="celebration-content">
+                <div class="celebration-emoji">🎉</div>
+                <div class="celebration-text">¡Muy Bien!</div>
+                <div class="celebration-stars">⭐⭐⭐</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
