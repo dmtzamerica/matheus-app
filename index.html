@@ -56,6 +56,14 @@
                 <span class="tab-emoji">🎮</span>
                 <span class="tab-text">Juego</span>
             </button>
+            <button class="nav-tab" data-tab="name">
+                <span class="tab-emoji">✏️</span>
+                <span class="tab-text">Nombre</span>
+            </button>
+            <button class="nav-tab" data-tab="counting">
+                <span class="tab-emoji">🍎</span>
+                <span class="tab-text">Contar</span>
+            </button>
         </nav>
 
         <!-- Main Content -->
@@ -173,6 +181,84 @@
                         <span class="score-value" id="streakCount">0</span>
                         <span class="streak-fire" id="streakFire">🔥</span>
                     </div>
+                </div>
+            </section>
+        </main>
+
+            <!-- Counting Game Section -->
+            <section id="counting" class="tab-content">
+                <div class="section-header">
+                    <h2>¡Cuenta las Frutas!</h2>
+                    <p>¿Cuántas frutas hay? 🔢</p>
+                </div>
+
+                <div class="counting-game-container">
+                    <div class="fruit-display" id="fruitDisplay">
+                        <!-- Fruits will be generated here -->
+                    </div>
+
+                    <div class="counting-options" id="countingOptions">
+                        <!-- Number options will be generated here -->
+                    </div>
+
+                    <div class="counting-feedback" id="countingFeedback"></div>
+
+                    <button class="next-btn counting-next-btn" id="countingNextBtn" style="display: none;">
+                        ¡Siguiente! ➡️
+                    </button>
+                </div>
+
+                <div class="counting-score">
+                    <div class="score-item">
+                        <span class="score-label">Correctas</span>
+                        <span class="score-value" id="countingCorrect">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Name Spelling Section -->
+            <section id="name" class="tab-content">
+                <div class="section-header">
+                    <h2>¡Escribe tu Nombre!</h2>
+                    <p>Arrastra las letras a su lugar correcto ✨</p>
+                </div>
+
+                <div class="name-game-container">
+                    <!-- Target name display -->
+                    <div class="target-name" id="targetName">
+                        <span class="target-letter">M</span>
+                        <span class="target-letter">A</span>
+                        <span class="target-letter">T</span>
+                        <span class="target-letter">H</span>
+                        <span class="target-letter">E</span>
+                        <span class="target-letter">U</span>
+                        <span class="target-letter">S</span>
+                    </div>
+
+                    <!-- Drop zones -->
+                    <div class="drop-zones" id="dropZones">
+                        <div class="drop-zone" data-index="0"></div>
+                        <div class="drop-zone" data-index="1"></div>
+                        <div class="drop-zone" data-index="2"></div>
+                        <div class="drop-zone" data-index="3"></div>
+                        <div class="drop-zone" data-index="4"></div>
+                        <div class="drop-zone" data-index="5"></div>
+                        <div class="drop-zone" data-index="6"></div>
+                    </div>
+
+                    <!-- Draggable letters -->
+                    <div class="letter-bank" id="letterBank">
+                        <!-- Letters will be generated here -->
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="name-game-buttons">
+                        <button class="mix-btn" id="mixBtn">🔀 Mezclar</button>
+                        <button class="reset-btn" id="resetBtn">🔄 Reiniciar</button>
+                    </div>
+
+                    <!-- Feedback -->
+                    <div class="name-feedback" id="nameFeedback"></div>
                 </div>
             </section>
         </main>
