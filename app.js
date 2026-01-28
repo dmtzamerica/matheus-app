@@ -67,6 +67,30 @@ const wordsByCategory = {
 // All words for the game
 const allWords = Object.values(wordsByCategory).flat();
 
+// Numbers 1-20
+const numbers = [
+    { number: 1, word: 'uno', emoji: '1️⃣' },
+    { number: 2, word: 'dos', emoji: '2️⃣' },
+    { number: 3, word: 'tres', emoji: '3️⃣' },
+    { number: 4, word: 'cuatro', emoji: '4️⃣' },
+    { number: 5, word: 'cinco', emoji: '5️⃣' },
+    { number: 6, word: 'seis', emoji: '6️⃣' },
+    { number: 7, word: 'siete', emoji: '7️⃣' },
+    { number: 8, word: 'ocho', emoji: '8️⃣' },
+    { number: 9, word: 'nueve', emoji: '9️⃣' },
+    { number: 10, word: 'diez', emoji: '🔟' },
+    { number: 11, word: 'once', emoji: '1️⃣1️⃣' },
+    { number: 12, word: 'doce', emoji: '1️⃣2️⃣' },
+    { number: 13, word: 'trece', emoji: '1️⃣3️⃣' },
+    { number: 14, word: 'catorce', emoji: '1️⃣4️⃣' },
+    { number: 15, word: 'quince', emoji: '1️⃣5️⃣' },
+    { number: 16, word: 'dieciséis', emoji: '1️⃣6️⃣' },
+    { number: 17, word: 'diecisiete', emoji: '1️⃣7️⃣' },
+    { number: 18, word: 'dieciocho', emoji: '1️⃣8️⃣' },
+    { number: 19, word: 'diecinueve', emoji: '1️⃣9️⃣' },
+    { number: 20, word: 'veinte', emoji: '2️⃣0️⃣' },
+];
+
 // State
 let stars = parseInt(localStorage.getItem('spanishStars') || '0');
 let currentConsonant = 'm';
@@ -99,6 +123,7 @@ function init() {
     setupVowels();
     renderSyllables();
     renderWords();
+    renderNumbers();
     setupGame();
 }
 
@@ -318,7 +343,7 @@ const syllableFixMap = {
     // O endings
     'mo': 'mo', 'po': 'po', 'so': 'so', 'lo': 'lo', 'to': 'toh',
     'no': 'no', 'do': 'do', 'co': 'co', 'ro': 'ro', 'bo': 'bo',
-    'fo': 'fo', 'go': 'go', 'jo': 'jo', 'ko': 'ko', 'vo': 'boh',
+    'fo': 'fo', 'go': 'goh', 'jo': 'jo', 'ko': 'ko', 'vo': 'boh',
     'wo': 'wo', 'xo': 'xo', 'yo': 'yo', 'zo': 'zo',
     'ño': 'ño', 'cho': 'cho', 'llo': 'llo', 'rro': 'rro',
     
@@ -510,6 +535,33 @@ function renderWords() {
         });
         
         wordsGrid.appendChild(card);
+    });
+}
+
+// Render Numbers
+function renderNumbers() {
+    const numbersGrid = document.getElementById('numbersGrid');
+    numbersGrid.innerHTML = '';
+    
+    numbers.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'number-card';
+        card.style.animationDelay = `${index * 0.05}s`;
+        
+        card.innerHTML = `
+            <span class="number-digit">${item.number}</span>
+            <span class="number-word">${item.word}</span>
+        `;
+        
+        card.addEventListener('click', () => {
+            speak(item.word);
+            card.style.transform = 'scale(1.1) rotate(5deg)';
+            setTimeout(() => {
+                card.style.transform = '';
+            }, 300);
+        });
+        
+        numbersGrid.appendChild(card);
     });
 }
 
