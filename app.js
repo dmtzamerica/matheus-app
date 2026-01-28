@@ -891,7 +891,7 @@ function handleZoneClick(zone) {
     if (selectedLetterChar !== expectedLetter) {
         // Wrong letter - shake the zone and don't place it
         zone.classList.add('wrong-shake');
-        speak('No, intenta con otra');
+        speak('Intenta con otra');
         setTimeout(() => {
             zone.classList.remove('wrong-shake');
         }, 500);
